@@ -3,7 +3,7 @@ import { withContentlayer } from "next-contentlayer2";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com", "www.hostinger.com"],
   },
 };
 

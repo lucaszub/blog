@@ -3,6 +3,7 @@ import { format, parseISO } from "date-fns";
 import { fr } from "date-fns/locale";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, Clock } from "lucide-react";
 import MarkdownRenderer from "../../components/MarkdownRenderer";
 
@@ -51,24 +52,6 @@ export default async function BlogPost({
   return (
     <main className="bg-slate-50 min-h-screen">
       {/* Breadcrumb */}
-      <div className="bg-white border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <nav className="flex items-center gap-2 text-sm text-slate-500">
-            <Link href="/" className="hover:text-slate-700 transition-colors">
-              Accueil
-            </Link>
-            <span>/</span>
-            <Link
-              href="/blog"
-              className="hover:text-slate-700 transition-colors"
-            >
-              Blog
-            </Link>
-            <span>/</span>
-            <span className="text-slate-900 font-medium">{post.category}</span>
-          </nav>
-        </div>
-      </div>
 
       <article className="bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
@@ -105,6 +88,22 @@ export default async function BlogPost({
               </time>
             </div>
           </header>
+
+          {/* Image de l'article */}
+          {post.image && (
+            <div className="mb-12">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                  priority
+                />
+              </div>
+            </div>
+          )}
 
           {/* Contenu de l'article */}
           <div className="max-w-3xl mx-auto">

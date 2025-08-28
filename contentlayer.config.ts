@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer2/source-files";
+import remarkGfm from "remark-gfm";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -29,6 +30,11 @@ export const Post = defineDocumentType(() => ({
       description: "Temps de lecture estimé",
       required: true,
     },
+    image: {
+      type: "string",
+      description: "URL de l'image de couverture",
+      required: false,
+    },
   },
   computedFields: {
     url: {
@@ -41,5 +47,7 @@ export const Post = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "content",
   documentTypes: [Post],
+  markdown: {
+    remarkPlugins: [remarkGfm],
+  },
 });
-

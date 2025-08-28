@@ -1,5 +1,6 @@
 // contentlayer.config.ts
 import { defineDocumentType, makeSource } from "contentlayer2/source-files";
+import remarkGfm from "remark-gfm";
 var Post = defineDocumentType(() => ({
   name: "Post",
   filePathPattern: `**/*.md`,
@@ -28,6 +29,11 @@ var Post = defineDocumentType(() => ({
       type: "string",
       description: "Temps de lecture estim\xE9",
       required: true
+    },
+    image: {
+      type: "string",
+      description: "URL de l'image de couverture",
+      required: false
     }
   },
   computedFields: {
@@ -39,10 +45,13 @@ var Post = defineDocumentType(() => ({
 }));
 var contentlayer_config_default = makeSource({
   contentDirPath: "content",
-  documentTypes: [Post]
+  documentTypes: [Post],
+  markdown: {
+    remarkPlugins: [remarkGfm]
+  }
 });
 export {
   Post,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-V7JLEKGM.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-I22NUX3T.mjs.map

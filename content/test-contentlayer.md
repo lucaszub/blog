@@ -4,6 +4,7 @@ date: 2025-01-28
 excerpt: Premier test avec Contentlayer pour vérifier que tout fonctionne correctement. Configuration réussie !
 category: Test
 readTime: 2 min
+image: https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1400&auto=format&fit=crop
 ---
 
 # Test Contentlayer

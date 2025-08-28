@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export default function APropos() {
   return (
     <main>
@@ -9,95 +12,89 @@ export default function APropos() {
               À propos
             </h1>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Consultant Data passionné par le partage de connaissances et
-              l&apos;amélioration continue.
+              Consultant Data passionné par l&apos;analyse et la transformation
+              de données en décisions concrètes.
             </p>
           </div>
 
-          {/* Content */}
+          {/* Contenu principal */}
           <div className="grid lg:grid-cols-3 gap-12 items-start">
-            {/* Photo placeholder */}
+            {/* Photo */}
             <div className="lg:col-span-1">
-              <div className="aspect-square rounded-2xl bg-slate-100 border-2 border-dashed border-slate-300 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-slate-200 rounded-full mx-auto mb-4"></div>
-                  <p className="text-sm text-slate-500">Photo à venir</p>
-                </div>
+              <div className="aspect-square rounded-2xl overflow-hidden relative">
+                <Image
+                  src="/Lucas Zubiarrain.png"
+                  alt="Lucas Zubiarrain"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
               </div>
             </div>
 
-            {/* Text content */}
-            <div className="lg:col-span-2 space-y-6">
-              <div>
-                <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                  Qui je suis
-                </h2>
-                <p className="text-slate-600 leading-relaxed">
-                  Je suis Lucas Zubiarrain, consultant Data chez CGI. Passionné
-                  par l&apos;univers de la donnée depuis plusieurs années,
-                  j&apos;accompagne les entreprises dans leur transformation
-                  digitale et l&apos;optimisation de leurs processus data.
-                </p>
-              </div>
+            {/* Contenu texte */}
+            <div className="lg:col-span-2 prose prose-slate prose-lg max-w-none">
+              <h2 className="text-2xl font-semibold text-slate-900 mt-0 mb-6">
+                Qui je suis
+              </h2>
+              <p className="text-slate-700 leading-relaxed mb-6">
+                Je m&apos;appelle Lucas Zubiarrain. Ce qui me passionne,
+                c&apos;est d&apos;analyser de grandes quantités de données, en
+                faire ressortir des tendances et les transformer en éléments
+                concrets pour orienter des décisions. J&apos;aime apprendre,
+                tester de nouvelles approches, améliorer ce que je fais et
+                partager mes découvertes pour qu&apos;elles puissent servir à
+                d&apos;autres.
+              </p>
 
-              <div>
-                <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                  Mon expérience
-                </h2>
-                <p className="text-slate-600 leading-relaxed mb-4">
-                  Au quotidien, je travaille sur des projets variés allant de la
-                  mise en place de pipelines ETL à la création de tableaux de
-                  bord interactifs. J&apos;ai eu l&apos;opportunité de
-                  travailler avec des technologies comme Python, SQL, et
-                  différents outils de visualisation.
-                </p>
-                <p className="text-slate-600 leading-relaxed">
-                  Cette diversité d&apos;expériences m&apos;a permis de
-                  développer une approche pragmatique : chercher la solution la
-                  plus simple et efficace, tout en gardant à l&apos;esprit les
-                  contraintes techniques et métier.
-                </p>
-              </div>
+              <h2 className="text-2xl font-semibold text-slate-900 mt-12 mb-6">
+                Mon expérience
+              </h2>
+              <p className="text-slate-700 leading-relaxed mb-6">
+                J&apos;interviens sur toutes les étapes du cycle de vie de la
+                donnée : depuis sa collecte et sa transformation jusqu&apos;à
+                son analyse et sa restitution sous une forme claire et
+                exploitable. Mon approche repose sur la recherche de solutions
+                simples, efficaces et adaptées aux besoins réels, avec une
+                attention particulière à la fiabilité et à la cohérence des
+                résultats.
+              </p>
 
-              <div>
-                <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                  Pourquoi ce blog ?
-                </h2>
-                <p className="text-slate-600 leading-relaxed mb-4">
-                  J&apos;ai créé ce carnet pour partager mes apprentissages et
-                  expérimentations dans le domaine de la data. L&apos;idée est
-                  simple : documenter ce que j&apos;apprends, les défis que je
-                  rencontre, et les solutions que je trouve.
-                </p>
-                <p className="text-slate-600 leading-relaxed">
-                  Que vous débutiez dans la data ou que vous cherchiez des
-                  retours d&apos;expérience pratiques, j&apos;espère que vous
-                  trouverez ici des ressources utiles pour vos propres projets.
-                </p>
-              </div>
+              <h2 className="text-2xl font-semibold text-slate-900 mt-12 mb-6">
+                Pourquoi ce blog ?
+              </h2>
+              <p className="text-slate-700 leading-relaxed mb-8">
+                J&apos;ai créé cet espace comme un carnet de bord pour
+                documenter mes apprentissages, mes expérimentations et les
+                solutions que je trouve utiles. L&apos;objectif est simple :
+                proposer des contenus clairs, directement applicables, qui
+                aident à mieux comprendre et exploiter la donnée dans différents
+                contextes.
+              </p>
 
-              {/* Contact CTA */}
-              <div className="pt-6 border-t border-slate-200">
+              {/* Call to action */}
+              <div className="mt-12 p-6 bg-slate-50 rounded-xl border border-slate-200">
                 <h3 className="text-lg font-semibold text-slate-900 mb-3">
-                  Restons en contact
+                  Vous avez un projet data ?
                 </h3>
-                <p className="text-slate-600 text-sm mb-4">
+                <p className="text-sm text-slate-600 mb-4">
                   N&apos;hésitez pas à me contacter pour échanger sur vos
-                  projets data ou simplement discuter de nos expériences.
+                  besoins en analyse de données, automatisation ou
+                  visualisation.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <a
+                  <Link
                     href="/contact"
-                    className="inline-flex items-center text-sm px-4 py-2 rounded-md border border-slate-200 bg-slate-900 text-white hover:bg-slate-800 transition-colors"
+                    className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-slate-900 rounded-lg hover:bg-slate-800 transition-colors"
                   >
                     Me contacter
-                  </a>
-                  <a
-                    href="https://linkedin.com/in/lucas-zubiarrain"
-                    className="inline-flex items-center text-sm px-4 py-2 rounded-md border border-slate-200 bg-white hover:bg-slate-50 transition-colors"
+                  </Link>
+                  <Link
+                    href="/blog"
+                    className="inline-flex items-center px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors"
                   >
-                    LinkedIn
-                  </a>
+                    Voir mes articles
+                  </Link>
                 </div>
               </div>
             </div>
@@ -107,4 +104,3 @@ export default function APropos() {
     </main>
   );
 }
-

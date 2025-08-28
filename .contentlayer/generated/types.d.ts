@@ -23,6 +23,8 @@ export type Post = {
   category: string
   /** Temps de lecture estimé */
   readTime: string
+  /** URL de l'image de couverture */
+  image?: string | undefined
   /** Markdown file body */
   body: Markdown
   url: string

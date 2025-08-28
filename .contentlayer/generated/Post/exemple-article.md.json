@@ -1,0 +1,22 @@
+{
+  "title": "Comment créer un article avec image",
+  "date": "2025-01-28T00:00:00.000Z",
+  "excerpt": "Guide pour créer un article Markdown avec une image de couverture. Exemple pratique pour votre blog.",
+  "category": "Data",
+  "readTime": "3 min",
+  "image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1400&auto=format&fit=crop",
+  "body": {
+    "raw": "\n# Comment créer un article avec image\n\nVoici comment structurer un article Markdown avec une image de couverture.\n\n## Structure du frontmatter\n\nPour ajouter une image à votre article, utilisez cette structure dans le frontmatter :\n\n```yaml\n---\ntitle: Titre de votre article\ndate: 2025-01-28\nexcerpt: Description courte de l'article\ncategory: Catégorie (SEO, Data, Automatisation, etc.)\nreadTime: 5 min\nimage: https://images.unsplash.com/votre-image-url\n---\n```\n\n## Conseils pour les images\n\n- **Format recommandé** : 16:10 (1400x875px minimum)\n- **Source** : Unsplash, Pexels ou vos propres images\n- **Optimisation** : Next.js optimise automatiquement les images\n- **Alt text** : Le titre de l'article est utilisé comme alt text\n\n## Résultat\n\nL'image apparaîtra :\n\n1. **Comme thumbnail** dans la page blog\n2. **En début d'article** après le header\n3. **Avec des styles cohérents** (bordures arrondies, ombre subtile)\n\nC'est tout ! Votre article est maintenant prêt avec une belle image de couverture.\n",
+    "html": "<h1>Comment créer un article avec image</h1>\n<p>Voici comment structurer un article Markdown avec une image de couverture.</p>\n<h2>Structure du frontmatter</h2>\n<p>Pour ajouter une image à votre article, utilisez cette structure dans le frontmatter :</p>\n<pre><code class=\"language-yaml\">---\ntitle: Titre de votre article\ndate: 2025-01-28\nexcerpt: Description courte de l'article\ncategory: Catégorie (SEO, Data, Automatisation, etc.)\nreadTime: 5 min\nimage: https://images.unsplash.com/votre-image-url\n---\n</code></pre>\n<h2>Conseils pour les images</h2>\n<ul>\n<li><strong>Format recommandé</strong> : 16:10 (1400x875px minimum)</li>\n<li><strong>Source</strong> : Unsplash, Pexels ou vos propres images</li>\n<li><strong>Optimisation</strong> : Next.js optimise automatiquement les images</li>\n<li><strong>Alt text</strong> : Le titre de l'article est utilisé comme alt text</li>\n</ul>\n<h2>Résultat</h2>\n<p>L'image apparaîtra :</p>\n<ol>\n<li><strong>Comme thumbnail</strong> dans la page blog</li>\n<li><strong>En début d'article</strong> après le header</li>\n<li><strong>Avec des styles cohérents</strong> (bordures arrondies, ombre subtile)</li>\n</ol>\n<p>C'est tout ! Votre article est maintenant prêt avec une belle image de couverture.</p>"
+  },
+  "_id": "exemple-article.md",
+  "_raw": {
+    "sourceFilePath": "exemple-article.md",
+    "sourceFileName": "exemple-article.md",
+    "sourceFileDir": ".",
+    "contentType": "markdown",
+    "flattenedPath": "exemple-article"
+  },
+  "type": "Post",
+  "url": "/blog/exemple-article"
+}

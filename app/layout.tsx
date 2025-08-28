@@ -30,10 +30,10 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body
-        className={`${inter.variable} ${ibmPlexMono.variable} bg-white text-slate-900 antialiased [font-family:Inter,sans-serif] selection:bg-slate-900 selection:text-white`}
+        className={`${inter.variable} ${ibmPlexMono.variable} bg-white text-slate-900 antialiased [font-family:Inter,sans-serif] selection:bg-slate-900 selection:text-white min-h-screen flex flex-col`}
       >
         <Navbar />
-        {children}
+        <div className="flex-1">{children}</div>
         <Footer />
       </body>
     </html>

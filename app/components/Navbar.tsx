@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu } from "lucide-react";
 
 export default function Navbar() {
@@ -13,8 +14,14 @@ export default function Navbar() {
         <div className="h-16 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="size-9 rounded-md border border-slate-200 bg-white flex items-center justify-center shadow-sm">
-              <span className="text-sm tracking-tight font-semibold">LZ</span>
+            <div className="size-9 rounded-md overflow-hidden border border-slate-200 shadow-sm relative">
+              <Image
+                src="/Lucas Zubiarrain.png"
+                alt="Lucas Zubiarrain"
+                fill
+                className="object-cover"
+                sizes="36px"
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-base font-semibold tracking-tight leading-none">

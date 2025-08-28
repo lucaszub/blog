@@ -30,10 +30,10 @@ export default function LatestArticles() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Section header */}
         <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl tracking-tight font-semibold text-slate-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl tracking-tight font-semibold text-slate-900 mb-4">
             Derniers articles
           </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Explorations récentes, retours d&apos;expérience et guides pratiques
             pour améliorer vos workflows data.
           </p>
@@ -51,10 +51,11 @@ export default function LatestArticles() {
               {/* Thumbnail */}
               <div className="aspect-[16/10] overflow-hidden relative">
                 <Image
-                  src={getCategoryImage(article.category)}
+                  src={article.image || getCategoryImage(article.category)}
                   alt={article.title}
                   fill
                   className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
 
@@ -81,8 +82,10 @@ export default function LatestArticles() {
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-sm text-slate-600 mb-4 line-clamp-2">
-                  {article.excerpt}
+                <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                  {article.excerpt.length > 120
+                    ? `${article.excerpt.substring(0, 120)}...`
+                    : article.excerpt}
                 </p>
 
                 {/* Date */}
@@ -103,11 +106,11 @@ export default function LatestArticles() {
         <div className="text-center mt-12">
           <Link
             href="/blog"
-            className="inline-flex items-center text-sm font-medium text-slate-900 hover:text-slate-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-slate-900 rounded-lg hover:bg-slate-800 transition-colors shadow-sm hover:shadow-md"
           >
             Voir tous les articles
             <svg
-              className="ml-2 w-4 h-4"
+              className="w-4 h-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

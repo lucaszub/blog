@@ -3,7 +3,7 @@ import { BookOpen, User } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative bg-white">
+    <section className="relative bg-slate-100">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
         <div className="text-center max-w-3xl mx-auto">
           {/* Status badge */}
