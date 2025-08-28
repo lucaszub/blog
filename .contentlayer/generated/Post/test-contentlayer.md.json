@@ -1,0 +1,21 @@
+{
+  "title": "Test Contentlayer - Ça fonctionne !",
+  "date": "2025-01-28T00:00:00.000Z",
+  "excerpt": "Premier test avec Contentlayer pour vérifier que tout fonctionne correctement. Configuration réussie !",
+  "category": "Test",
+  "readTime": "2 min\r",
+  "body": {
+    "raw": "\r\n# Test Contentlayer\r\n\r\nCeci est un **test** pour vérifier que Contentlayer fonctionne correctement !\r\n\r\n## Fonctionnalités testées\r\n\r\n- ✅ Configuration Contentlayer\r\n- ✅ Parsing des fichiers Markdown\r\n- ✅ Métadonnées frontmatter\r\n- ✅ Génération automatique des URLs\r\n\r\n## Code d'exemple\r\n\r\n```javascript\r\nconsole.log(\"Contentlayer fonctionne !\");\r\n```\r\n\r\nTout semble fonctionner parfaitement ! 🎉\r\n",
+    "html": "<h1>Test Contentlayer</h1>\n<p>Ceci est un <strong>test</strong> pour vérifier que Contentlayer fonctionne correctement !</p>\n<h2>Fonctionnalités testées</h2>\n<ul>\n<li>✅ Configuration Contentlayer</li>\n<li>✅ Parsing des fichiers Markdown</li>\n<li>✅ Métadonnées frontmatter</li>\n<li>✅ Génération automatique des URLs</li>\n</ul>\n<h2>Code d'exemple</h2>\n<pre><code class=\"language-javascript\">console.log(\"Contentlayer fonctionne !\");\n</code></pre>\n<p>Tout semble fonctionner parfaitement ! 🎉</p>"
+  },
+  "_id": "test-contentlayer.md",
+  "_raw": {
+    "sourceFilePath": "test-contentlayer.md",
+    "sourceFileName": "test-contentlayer.md",
+    "sourceFileDir": ".",
+    "contentType": "markdown",
+    "flattenedPath": "test-contentlayer"
+  },
+  "type": "Post",
+  "url": "/blog/test-contentlayer"
+}

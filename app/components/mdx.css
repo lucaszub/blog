@@ -1,0 +1,117 @@
+/* MDX specific styles matching your component specifications */
+.mdx-content {
+  @apply text-slate-700;
+}
+
+.mdx-content p {
+  @apply leading-7;
+}
+
+.mdx-content p:not(:first-child) {
+  @apply mt-6;
+}
+
+.mdx-content h1 {
+  @apply text-3xl leading-9 mb-4;
+}
+
+.mdx-content h2 {
+  @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors mt-16;
+}
+
+.mdx-content h2:first-child {
+  @apply mt-0;
+}
+
+.mdx-content h3 {
+  @apply scroll-m-20 text-2xl font-semibold tracking-tight mt-16;
+}
+
+.mdx-content h3:first-child {
+  @apply mt-0;
+}
+
+.mdx-content h4 {
+  @apply scroll-m-20 text-xl font-semibold tracking-tight mt-16;
+}
+
+.mdx-content h4:first-child {
+  @apply mt-0;
+}
+
+.mdx-content h5 {
+  @apply text-base leading-5 mb-4 mt-16;
+}
+
+.mdx-content h5:first-child {
+  @apply mt-0;
+}
+
+.mdx-content h6 {
+  @apply text-sm leading-4 mb-4 mt-16;
+}
+
+.mdx-content h6:first-child {
+  @apply mt-0;
+}
+
+.mdx-content ul {
+  @apply my-6 ml-6 list-disc;
+}
+
+.mdx-content ul > li {
+  @apply mt-2;
+}
+
+.mdx-content ol {
+  @apply list-decimal pl-6 mb-6;
+}
+
+.mdx-content li {
+  @apply mb-2 text-sm;
+}
+
+.mdx-content a {
+  @apply text-blue-600 font-medium underline decoration-blue-600/30 underline-offset-4 hover:decoration-blue-600 transition-all duration-200;
+}
+
+.mdx-content blockquote {
+  @apply mt-6 border-l-2 pl-6 italic;
+}
+
+.mdx-content hr {
+  @apply border-gray-300 my-6;
+}
+
+.mdx-content table {
+  @apply w-full text-left border-collapse;
+}
+
+.mdx-content th {
+  @apply px-6 py-3 border-b border-gray-300 text-sm font-semibold text-gray-600;
+}
+
+.mdx-content td {
+  @apply px-6 py-4 border-b border-gray-300 text-sm;
+}
+
+.mdx-content code {
+  @apply relative rounded bg-slate-100 px-[0.3rem] py-[0.2rem] font-mono font-semibold text-slate-900;
+}
+
+.mdx-content pre {
+  @apply bg-slate-900 text-slate-100 rounded-lg p-6 overflow-x-auto my-6 text-sm leading-relaxed;
+}
+
+.mdx-content pre code {
+  @apply bg-transparent text-slate-100 p-0;
+}
+
+/* Additional custom styles for MDX content */
+.mdx-content img {
+  @apply rounded-lg shadow-md my-8;
+}
+
+.mdx-content figcaption {
+  @apply text-center text-sm text-slate-600 mt-2;
+}
