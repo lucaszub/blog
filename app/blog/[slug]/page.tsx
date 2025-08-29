@@ -113,6 +113,95 @@ export default async function BlogPost({
           {/* Section FAQ */}
           {post.faq && <BlogFAQ faqs={post.faq} />}
 
+          {/* Section Autres articles */}
+          <section className="mt-16 pt-8 border-t border-slate-200">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
+                Autres articles
+              </h2>
+
+              <div className="grid sm:grid-cols-2 gap-6">
+                {allPosts
+                  .filter((otherPost) => otherPost.url !== post.url) // Exclure l'article actuel
+                  .slice(0, 4) // Limiter à 4 articles
+                  .map((relatedPost) => (
+                    <article
+                      key={relatedPost.url}
+                      className="group rounded-lg border border-slate-200 bg-white overflow-hidden hover:shadow-md transition-shadow"
+                    >
+                      {/* Image */}
+                      <div className="aspect-[16/10] overflow-hidden relative">
+                        <Image
+                          className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                          src={relatedPost.image || "/azure-deploiymenet.png"}
+                          alt={relatedPost.title}
+                          fill
+                          sizes="(max-width: 640px) 100vw, 50vw"
+                        />
+                      </div>
+
+                      {/* Content */}
+                      <div className="p-4">
+                        {/* Catégories */}
+                        <div className="mb-3">
+                          <CategoryBadges
+                            categories={relatedPost.category}
+                            size="sm"
+                          />
+                        </div>
+
+                        {/* Titre */}
+                        <h3 className="text-base font-semibold text-slate-900 mb-2 leading-tight">
+                          <Link
+                            href={relatedPost.url}
+                            className="hover:text-slate-700 transition-colors"
+                          >
+                            {relatedPost.title}
+                          </Link>
+                        </h3>
+
+                        {/* Extrait */}
+                        <p className="text-sm text-slate-600 mb-3 leading-relaxed">
+                          {relatedPost.excerpt.length > 100
+                            ? `${relatedPost.excerpt.substring(0, 100)}...`
+                            : relatedPost.excerpt}
+                        </p>
+
+                        {/* Métadonnées */}
+                        <div className="flex items-center gap-2 text-xs text-slate-500">
+                          <Clock className="w-3 h-3" />
+                          <span>{relatedPost.readTime}</span>
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+              </div>
+
+              {/* Lien vers tous les articles */}
+              <div className="text-center mt-8">
+                <Link
+                  href="/blog"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-900 hover:text-slate-700 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors"
+                >
+                  Voir tous les articles
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </section>
+
           {/* Navigation entre articles */}
           <footer className="mt-16 pt-8 border-t border-slate-200 max-w-3xl mx-auto">
             <div className="flex items-center justify-between">

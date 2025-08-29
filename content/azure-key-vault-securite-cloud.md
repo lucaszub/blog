@@ -4,7 +4,7 @@ date: 2025-08-29
 excerpt: "Comprendre, évaluer et intégrer Azure Key Vault pour protéger secrets, clés et certificats. Cas d’usage, intégrations, gouvernance et erreurs à éviter."
 category: [Azure, Sécurité, Cloud]
 readTime: 6 min
-image: https://images.unsplash.com/photo-1562770584-eaf50b017307?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.1.0
+image: /Azure Key vault.png
 faq:
   - question: "Quelle est la différence entre Azure Key Vault Standard et Premium ?"
     answer: "Key Vault Standard utilise des clés protégées par logiciel, tandis que Premium offre des clés protégées par HSM (Hardware Security Module) pour une sécurité renforcée. Premium est recommandé pour les environnements critiques."
@@ -22,14 +22,10 @@ faq:
 
 Les fuites de secrets coûtent cher, abîment la confiance et freinent les projets. Centraliser, contrôler et tracer l’accès aux secrets et clés devient un réflexe de base dans un SI distribué. Azure Key Vault répond précisément à ce besoin en offrant un service managé pour stocker et gérer secrets, clés cryptographiques et certificats de manière sécurisée.
 
----
-
 ## Définition et valeur métier
 
 Azure Key Vault est un service cloud qui centralise le stockage des secrets (mots de passe, chaînes de connexion, clés API), la gestion des clés (génération, rotation, usage cryptographique) et des certificats, avec journalisation et contrôles d’accès intégrés via Microsoft Entra ID. Il propose des conteneurs de type “coffres” et “pools HSM managés” selon le niveau de protection requis.  
 En clair : moins de secrets dans le code, des accès finement gouvernés, et un audit continu conforme aux exigences de sécurité et de conformité.
-
----
 
 ## Capacités clés et architecture d’accès
 
@@ -38,16 +34,12 @@ En clair : moins de secrets dans le code, des accès finement gouvernés, et un 
 - **Authentification d’application** : recommandation d’utiliser les identités managées plutôt que des secrets statiques pour éviter de gérer le “premier secret” et faciliter la rotation automatique. Azure Key Vault chiffre aussi les données en transit via TLS.
 - **Résilience sécurité** : suppression douce et protection contre la purge pour éviter pertes accidentelles ou malveillantes, avec audit détaillé des accès.
 
----
-
 ## Intégrations et patterns d’architecture
 
 - **App Service & Functions** : références Key Vault directement en configuration d’application ; identité managée pour récupérer les secrets sans exposition.
 - **AKS (Kubernetes)** : ingestion sécurisée des secrets dans les pods via opérateurs/CSI pour limiter l’exposition en clair.
 - **CI/CD (Azure DevOps)** : injection de secrets en pipeline pour signer, déployer et configurer sans les stocker en clair.
 - **IaaS & data services** : intégrations avec VM, Disk Encryption, Databricks et services de données Azure pour un chiffrement au repos contrôlé par le client.
-
----
 
 ## Gouvernance et bonnes pratiques
 
@@ -58,8 +50,6 @@ En clair : moins de secrets dans le code, des accès finement gouvernés, et un 
 - **Journalisation active** : logs et alertes intégrés à la supervision (SIEM).
 - **Automatisation** : déploiement infra-as-code (ARM/Bicep/Terraform).
 
----
-
 ## Erreurs fréquentes à éviter
 
 - **Tout centraliser dans un seul coffre** : multipliez-les par produit ou environnement.
@@ -67,8 +57,6 @@ En clair : moins de secrets dans le code, des accès finement gouvernés, et un 
 - **Secrets statiques cachés** : remplacez par identités managées avec rotation.
 - **Pas d’audit/action** : un log non exploité ne sert pas en incident.
 - **Noms opaques** : chaque secret doit indiquer usage, portée, propriétaire.
-
----
 
 ## Guide de décision rapide
 
@@ -82,8 +70,6 @@ En clair : moins de secrets dans le code, des accès finement gouvernés, et un 
   - Compatibilité hors Azure via API/SDK
   - Gouvernance et modèles d’accès clairs
   - Latence éventuelle pour applications hors Azure
-
----
 
 ## Checklist opérationnelle
 
