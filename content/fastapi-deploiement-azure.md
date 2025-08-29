@@ -31,7 +31,7 @@ Avant de commencer, vous devez avoir :
 - **[Azure CLI](https://learn.microsoft.com/fr-fr/cli/azure/install-azure-cli)** pour interagir avec Azure
 - Un **compte GitHub** avec **Actions** activées
 
-## 🛠 1. Créer les ressources Azure via Azure CLI
+## 1. Créer les ressources Azure via Azure CLI
 
 ### 🔹 1.1 Créer un groupe de ressources
 
@@ -79,7 +79,7 @@ az ad sp create-for-rbac --name "github-action-deploy" \
   --sdk-auth
 ```
 
-📚 **Référence** : [Créer un principal de service Azure](https://learn.microsoft.com/fr-fr/cli/azure/create-an-azure-service-principal-azure-cli)
+**Référence** : [Créer un principal de service Azure](https://learn.microsoft.com/fr-fr/cli/azure/create-an-azure-service-principal-azure-cli)
 
 ## 4. Ajouter les identifiants dans les secrets GitHub
 
@@ -88,7 +88,7 @@ az ad sp create-for-rbac --name "github-action-deploy" \
 3. Nom : `AZURE_CREDENTIALS`
 4. Valeur : collez le JSON généré
 
-## 🤖 5. Pipeline CI/CD avec GitHub Actions
+## 5. Pipeline CI/CD avec GitHub Actions
 
 Créez le fichier `.github/workflows/deploy.yml` :
 
@@ -134,7 +134,7 @@ jobs:
 
 **Guide complet GitHub Actions + Azure** : [Documentation Microsoft](https://learn.microsoft.com/fr-fr/azure/app-service/deploy-github-actions)
 
-## 📘 Explication du pipeline
+## Explication du pipeline
 
 - **Checkout** : Récupère le code source depuis GitHub
 - **Docker Buildx** : Prépare la construction d’images multi-architecture

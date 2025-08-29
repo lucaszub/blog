@@ -56,7 +56,7 @@ export default async function BlogPost({
       {/* Breadcrumb */}
 
       <article className="bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16 py-12 sm:py-16">
           {/* Header de l'article */}
           <header className="mb-12 text-center">
             {/* Catégorie et métadonnées */}
