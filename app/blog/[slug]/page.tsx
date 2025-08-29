@@ -6,6 +6,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Calendar, Clock } from "lucide-react";
 import MarkdownRenderer from "../../components/MarkdownRenderer";
+import FAQ from "../../components/FAQ";
+import CategoryBadges from "../../components/CategoryBadges";
 
 // Générer les paramètres statiques pour tous les posts
 export async function generateStaticParams() {
@@ -59,9 +61,7 @@ export default async function BlogPost({
           <header className="mb-12 text-center">
             {/* Catégorie et métadonnées */}
             <div className="flex items-center justify-center gap-4 mb-6">
-              <span className="px-3 py-1.5 text-sm rounded-full border border-slate-200 bg-slate-50 text-slate-700 font-medium">
-                {post.category}
-              </span>
+              <CategoryBadges categories={post.category} size="md" />
               <div className="h-1 w-1 bg-slate-300 rounded-full"></div>
               <div className="flex items-center gap-1 text-sm text-slate-500">
                 <Clock className="w-4 h-4" />
@@ -108,6 +108,9 @@ export default async function BlogPost({
           {/* Contenu de l'article */}
           <div className="max-w-3xl mx-auto">
             <MarkdownRenderer html={post.body.html} />
+
+            {/* FAQ optionnelle */}
+            {post.faq && <FAQ faqs={post.faq} />}
           </div>
 
           {/* Navigation entre articles */}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import CategoryBadges from "../components/CategoryBadges";
 import { allPosts } from "contentlayer/generated";
 import { format, parseISO } from "date-fns";
 import { fr } from "date-fns/locale";
@@ -11,7 +12,7 @@ const sortedPosts = allPosts.sort(
 );
 
 // Images par défaut selon la catégorie
-const getCategoryImage = (category: string) => {
+const getCategoryImage = (categories: string[]) => {
   const images = {
     SEO: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1400&auto=format&fit=crop",
     Data: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1400&auto=format&fit=crop",
@@ -21,7 +22,9 @@ const getCategoryImage = (category: string) => {
       "https://images.unsplash.com/photo-1543286384-2ccae3041f2b?q=80&w=1400&auto=format&fit=crop",
     Test: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1400&auto=format&fit=crop",
   };
-  return images[category as keyof typeof images] || images.Data;
+  // Utilise la première catégorie pour l'image
+  const primaryCategory = categories[0];
+  return images[primaryCategory as keyof typeof images] || images.Data;
 };
 
 export default function Blog() {
@@ -62,9 +65,7 @@ export default function Blog() {
               <div className="p-5">
                 {/* Catégorie et temps de lecture */}
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="px-2 py-1 text-[11px] rounded-full border border-slate-200 bg-white text-slate-700 font-medium">
-                    {post.category}
-                  </span>
+                  <CategoryBadges categories={post.category} size="sm" />
                   <div className="flex items-center gap-1 text-[11px] text-slate-500">
                     <Clock className="w-3 h-3" />
                     <span>{post.readTime}</span>

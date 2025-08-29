@@ -21,8 +21,9 @@ export const Post = defineDocumentType(() => ({
       required: true,
     },
     category: {
-      type: "string",
-      description: "La catégorie de l'article",
+      type: "list",
+      of: { type: "string" },
+      description: "Les catégories de l'article (peut être multiple)",
       required: true,
     },
     readTime: {
@@ -33,6 +34,11 @@ export const Post = defineDocumentType(() => ({
     image: {
       type: "string",
       description: "URL de l'image de couverture",
+      required: false,
+    },
+    faq: {
+      type: "json",
+      description: "Questions fréquentes avec questions et réponses",
       required: false,
     },
   },

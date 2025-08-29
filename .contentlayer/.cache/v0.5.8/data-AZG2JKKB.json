@@ -1,5 +1,54 @@
 {
   "cacheItemsMap": {
+    "azure-key-vault-securite-cloud.md": {
+      "document": {
+        "title": "Azure Key Vault : sécuriser vos secrets dans le cloud",
+        "date": "2025-08-29T00:00:00.000Z",
+        "excerpt": "Découvrez comment Azure Key Vault protège et gère vos secrets, clés et certificats dans le cloud Microsoft Azure, avec bonnes pratiques et intégrations.",
+        "category": "Azure",
+        "readTime": "3 min",
+        "image": "https://images.unsplash.com/photo-1562770584-eaf50b017307?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "faq": [
+          {
+            "question": "Quelle est la différence entre Azure Key Vault Standard et Premium ?",
+            "answer": "Key Vault Standard utilise des clés protégées par logiciel, tandis que Premium offre des clés protégées par HSM (Hardware Security Module) pour une sécurité renforcée. Premium est recommandé pour les environnements critiques."
+          },
+          {
+            "question": "Comment gérer les permissions d'accès dans Key Vault ?",
+            "answer": "Utilisez Azure RBAC (Role-Based Access Control) ou les politiques d'accès Key Vault. RBAC est plus moderne et offre une gestion granulaire des permissions avec intégration Azure AD."
+          },
+          {
+            "question": "Key Vault peut-il être utilisé avec des applications on-premise ?",
+            "answer": "Oui, via une connexion VPN ou ExpressRoute vers Azure. Vous pouvez aussi utiliser Azure Arc pour gérer des ressources hybrides et accéder à Key Vault de manière sécurisée."
+          },
+          {
+            "question": "Comment automatiser la rotation des secrets ?",
+            "answer": "Utilisez les fonctions de rotation automatique d'Azure Key Vault avec Azure Functions ou Logic Apps. Configurez des alertes pour surveiller l'expiration des certificats et secrets."
+          },
+          {
+            "question": "Quels sont les coûts associés à Azure Key Vault ?",
+            "answer": "Key Vault facture par opération (GET, PUT, DELETE) et par type de clé stockée. Le coût est généralement faible, environ 0,03€ pour 10 000 opérations. Les clés HSM Premium sont plus coûteuses."
+          }
+        ],
+        "body": {
+          "raw": "\n## Introduction\n\nDans un environnement numérique où les cyberattaques se multiplient, la sécurisation des données sensibles est un impératif stratégique. **[Azure Key Vault](https://learn.microsoft.com/fr-fr/azure/key-vault/general/overview)** s'impose comme un pilier central de la sécurité sur Microsoft Azure, offrant un espace sécurisé pour stocker et gérer clés de chiffrement, secrets et certificats.\n\n## Qu'est-ce qu'Azure Key Vault ?\n\n### Définition\n\n**Azure Key Vault** est un coffre-fort numérique basé sur le cloud, conçu pour stocker et gérer en toute sécurité :\n\n- **Clés de chiffrement** (RSA, EC, AES)\n- **Secrets d'application** (mots de passe, API keys, chaînes de connexion)\n- **Certificats SSL/TLS**\n\nIl repose sur des modules matériels de sécurité (**[HSM certifiés FIPS 140-2](https://csrc.nist.gov/publications/detail/fips/140/2/final)**), assurant un niveau de protection élevé.\n\n### Pourquoi l'utiliser ?\n\n- **Centralisation** : un emplacement unique pour gérer toutes les données sensibles\n- **Sécurité** : accès contrôlé via [Azure Active Directory](https://azure.microsoft.com/fr-fr/products/active-directory/)\n- **Automatisation** : rotation et renouvellement automatiques\n- **Conformité** : respect des normes comme [ISO 27001](https://www.iso.org/fr/isoiec-27001-information-security.html)\n\n## Fonctionnalités principales\n\n### Gestion des secrets\n\nVersionnement, traçabilité, accès contrôlé.\n\n### Gestion des clés de chiffrement\n\nChiffrement/déchiffrement, signature, sécurisation de clés symétriques.\n\n### Gestion des certificats\n\nCréation, importation, renouvellement, suppression.\n\n## Intégrations et cas d'usage\n\n- **Azure Functions** : récupération dynamique des secrets\n- **Azure DevOps** : sécurisation des pipelines CI/CD\n- **Applications web** : utilisation d'identités managées\n\n## Bonnes pratiques de sécurité\n\n1. Utiliser les identités managées\n2. Appliquer le moindre privilège\n3. Activer journalisation et monitoring\n4. Réviser régulièrement les accès\n\n## Conclusion\n\n**Azure Key Vault** est un composant stratégique pour centraliser et sécuriser la gestion des secrets dans le cloud. Bien intégré, il augmente la sécurité, la conformité et la robustesse des applications.\n",
+          "html": "<h2>Introduction</h2>\n<p>Dans un environnement numérique où les cyberattaques se multiplient, la sécurisation des données sensibles est un impératif stratégique. <strong><a href=\"https://learn.microsoft.com/fr-fr/azure/key-vault/general/overview\">Azure Key Vault</a></strong> s'impose comme un pilier central de la sécurité sur Microsoft Azure, offrant un espace sécurisé pour stocker et gérer clés de chiffrement, secrets et certificats.</p>\n<h2>Qu'est-ce qu'Azure Key Vault ?</h2>\n<h3>Définition</h3>\n<p><strong>Azure Key Vault</strong> est un coffre-fort numérique basé sur le cloud, conçu pour stocker et gérer en toute sécurité :</p>\n<ul>\n<li><strong>Clés de chiffrement</strong> (RSA, EC, AES)</li>\n<li><strong>Secrets d'application</strong> (mots de passe, API keys, chaînes de connexion)</li>\n<li><strong>Certificats SSL/TLS</strong></li>\n</ul>\n<p>Il repose sur des modules matériels de sécurité (<strong><a href=\"https://csrc.nist.gov/publications/detail/fips/140/2/final\">HSM certifiés FIPS 140-2</a></strong>), assurant un niveau de protection élevé.</p>\n<h3>Pourquoi l'utiliser ?</h3>\n<ul>\n<li><strong>Centralisation</strong> : un emplacement unique pour gérer toutes les données sensibles</li>\n<li><strong>Sécurité</strong> : accès contrôlé via <a href=\"https://azure.microsoft.com/fr-fr/products/active-directory/\">Azure Active Directory</a></li>\n<li><strong>Automatisation</strong> : rotation et renouvellement automatiques</li>\n<li><strong>Conformité</strong> : respect des normes comme <a href=\"https://www.iso.org/fr/isoiec-27001-information-security.html\">ISO 27001</a></li>\n</ul>\n<h2>Fonctionnalités principales</h2>\n<h3>Gestion des secrets</h3>\n<p>Versionnement, traçabilité, accès contrôlé.</p>\n<h3>Gestion des clés de chiffrement</h3>\n<p>Chiffrement/déchiffrement, signature, sécurisation de clés symétriques.</p>\n<h3>Gestion des certificats</h3>\n<p>Création, importation, renouvellement, suppression.</p>\n<h2>Intégrations et cas d'usage</h2>\n<ul>\n<li><strong>Azure Functions</strong> : récupération dynamique des secrets</li>\n<li><strong>Azure DevOps</strong> : sécurisation des pipelines CI/CD</li>\n<li><strong>Applications web</strong> : utilisation d'identités managées</li>\n</ul>\n<h2>Bonnes pratiques de sécurité</h2>\n<ol>\n<li>Utiliser les identités managées</li>\n<li>Appliquer le moindre privilège</li>\n<li>Activer journalisation et monitoring</li>\n<li>Réviser régulièrement les accès</li>\n</ol>\n<h2>Conclusion</h2>\n<p><strong>Azure Key Vault</strong> est un composant stratégique pour centraliser et sécuriser la gestion des secrets dans le cloud. Bien intégré, il augmente la sécurité, la conformité et la robustesse des applications.</p>"
+        },
+        "_id": "azure-key-vault-securite-cloud.md",
+        "_raw": {
+          "sourceFilePath": "azure-key-vault-securite-cloud.md",
+          "sourceFileName": "azure-key-vault-securite-cloud.md",
+          "sourceFileDir": ".",
+          "contentType": "markdown",
+          "flattenedPath": "azure-key-vault-securite-cloud"
+        },
+        "type": "Post",
+        "url": "/blog/azure-key-vault-securite-cloud"
+      },
+      "documentHash": "1756480621825",
+      "hasWarnings": false,
+      "documentTypeName": "Post"
+    },
     "exemple-article.md": {
       "document": {
         "title": "Comment créer un article avec image",
@@ -105,33 +154,6 @@
         "url": "/blog/test-contentlayer"
       },
       "documentHash": "1756408662787",
-      "hasWarnings": false,
-      "documentTypeName": "Post"
-    },
-    "azure-key-vault-securite-cloud.md": {
-      "document": {
-        "title": "Azure Key Vault : sécuriser vos secrets dans le cloud",
-        "date": "2025-08-29T00:00:00.000Z",
-        "excerpt": "Découvrez comment Azure Key Vault protège et gère vos secrets, clés et certificats dans le cloud Microsoft Azure, avec bonnes pratiques et intégrations.",
-        "category": "Azure",
-        "readTime": "3 min",
-        "image": "https://images.unsplash.com/photo-1562770584-eaf50b017307?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "body": {
-          "raw": "\n## Introduction\n\nDans un environnement numérique où les cyberattaques se multiplient, la sécurisation des données sensibles est un impératif stratégique. **[Azure Key Vault](https://learn.microsoft.com/fr-fr/azure/key-vault/general/overview)** s’impose comme un pilier central de la sécurité sur Microsoft Azure, offrant un espace sécurisé pour stocker et gérer clés de chiffrement, secrets et certificats.\n\n## Qu’est-ce qu’Azure Key Vault ?\n\n### Définition\n\n**Azure Key Vault** est un coffre-fort numérique basé sur le cloud, conçu pour stocker et gérer en toute sécurité :\n\n- **Clés de chiffrement** (RSA, EC, AES)\n- **Secrets d’application** (mots de passe, API keys, chaînes de connexion)\n- **Certificats SSL/TLS**\n\nIl repose sur des modules matériels de sécurité (**[HSM certifiés FIPS 140-2](https://csrc.nist.gov/publications/detail/fips/140/2/final)**), assurant un niveau de protection élevé.\n\n### Pourquoi l’utiliser ?\n\n- **Centralisation** : un emplacement unique pour gérer toutes les données sensibles\n- **Sécurité** : accès contrôlé via [Azure Active Directory](https://azure.microsoft.com/fr-fr/products/active-directory/)\n- **Automatisation** : rotation et renouvellement automatiques\n- **Conformité** : respect des normes comme [ISO 27001](https://www.iso.org/fr/isoiec-27001-information-security.html)\n\n## Fonctionnalités principales\n\n### Gestion des secrets\n\nVersionnement, traçabilité, accès contrôlé.\n\n### Gestion des clés de chiffrement\n\nChiffrement/déchiffrement, signature, sécurisation de clés symétriques.\n\n### Gestion des certificats\n\nCréation, importation, renouvellement, suppression.\n\n## Intégrations et cas d’usage\n\n- **Azure Functions** : récupération dynamique des secrets\n- **Azure DevOps** : sécurisation des pipelines CI/CD\n- **Applications web** : utilisation d’identités managées\n\n## Bonnes pratiques de sécurité\n\n1. Utiliser les identités managées\n2. Appliquer le moindre privilège\n3. Activer journalisation et monitoring\n4. Réviser régulièrement les accès\n\n## FAQ – Questions fréquentes\n\n**Comment récupérer un secret depuis Azure Key Vault ?**  \nVia SDK Azure, CLI ou API REST, avec identité managée recommandée.\n\n**Les données sont-elles chiffrées au repos ?**  \nOui, possibilité d’utiliser vos propres clés gérées.\n\n**Key Vault ou Managed HSM ?**  \nManaged HSM est destiné aux besoins de sécurité extrêmes (FIPS 140-2 niveau 3).\n\n## Conclusion\n\n**Azure Key Vault** est un composant stratégique pour centraliser et sécuriser la gestion des secrets dans le cloud. Bien intégré, il augmente la sécurité, la conformité et la robustesse des applications.\n",
-          "html": "<h2>Introduction</h2>\n<p>Dans un environnement numérique où les cyberattaques se multiplient, la sécurisation des données sensibles est un impératif stratégique. <strong><a href=\"https://learn.microsoft.com/fr-fr/azure/key-vault/general/overview\">Azure Key Vault</a></strong> s’impose comme un pilier central de la sécurité sur Microsoft Azure, offrant un espace sécurisé pour stocker et gérer clés de chiffrement, secrets et certificats.</p>\n<h2>Qu’est-ce qu’Azure Key Vault ?</h2>\n<h3>Définition</h3>\n<p><strong>Azure Key Vault</strong> est un coffre-fort numérique basé sur le cloud, conçu pour stocker et gérer en toute sécurité :</p>\n<ul>\n<li><strong>Clés de chiffrement</strong> (RSA, EC, AES)</li>\n<li><strong>Secrets d’application</strong> (mots de passe, API keys, chaînes de connexion)</li>\n<li><strong>Certificats SSL/TLS</strong></li>\n</ul>\n<p>Il repose sur des modules matériels de sécurité (<strong><a href=\"https://csrc.nist.gov/publications/detail/fips/140/2/final\">HSM certifiés FIPS 140-2</a></strong>), assurant un niveau de protection élevé.</p>\n<h3>Pourquoi l’utiliser ?</h3>\n<ul>\n<li><strong>Centralisation</strong> : un emplacement unique pour gérer toutes les données sensibles</li>\n<li><strong>Sécurité</strong> : accès contrôlé via <a href=\"https://azure.microsoft.com/fr-fr/products/active-directory/\">Azure Active Directory</a></li>\n<li><strong>Automatisation</strong> : rotation et renouvellement automatiques</li>\n<li><strong>Conformité</strong> : respect des normes comme <a href=\"https://www.iso.org/fr/isoiec-27001-information-security.html\">ISO 27001</a></li>\n</ul>\n<h2>Fonctionnalités principales</h2>\n<h3>Gestion des secrets</h3>\n<p>Versionnement, traçabilité, accès contrôlé.</p>\n<h3>Gestion des clés de chiffrement</h3>\n<p>Chiffrement/déchiffrement, signature, sécurisation de clés symétriques.</p>\n<h3>Gestion des certificats</h3>\n<p>Création, importation, renouvellement, suppression.</p>\n<h2>Intégrations et cas d’usage</h2>\n<ul>\n<li><strong>Azure Functions</strong> : récupération dynamique des secrets</li>\n<li><strong>Azure DevOps</strong> : sécurisation des pipelines CI/CD</li>\n<li><strong>Applications web</strong> : utilisation d’identités managées</li>\n</ul>\n<h2>Bonnes pratiques de sécurité</h2>\n<ol>\n<li>Utiliser les identités managées</li>\n<li>Appliquer le moindre privilège</li>\n<li>Activer journalisation et monitoring</li>\n<li>Réviser régulièrement les accès</li>\n</ol>\n<h2>FAQ – Questions fréquentes</h2>\n<p><strong>Comment récupérer un secret depuis Azure Key Vault ?</strong><br>\nVia SDK Azure, CLI ou API REST, avec identité managée recommandée.</p>\n<p><strong>Les données sont-elles chiffrées au repos ?</strong><br>\nOui, possibilité d’utiliser vos propres clés gérées.</p>\n<p><strong>Key Vault ou Managed HSM ?</strong><br>\nManaged HSM est destiné aux besoins de sécurité extrêmes (FIPS 140-2 niveau 3).</p>\n<h2>Conclusion</h2>\n<p><strong>Azure Key Vault</strong> est un composant stratégique pour centraliser et sécuriser la gestion des secrets dans le cloud. Bien intégré, il augmente la sécurité, la conformité et la robustesse des applications.</p>"
-        },
-        "_id": "azure-key-vault-securite-cloud.md",
-        "_raw": {
-          "sourceFilePath": "azure-key-vault-securite-cloud.md",
-          "sourceFileName": "azure-key-vault-securite-cloud.md",
-          "sourceFileDir": ".",
-          "contentType": "markdown",
-          "flattenedPath": "azure-key-vault-securite-cloud"
-        },
-        "type": "Post",
-        "url": "/blog/azure-key-vault-securite-cloud"
-      },
-      "documentHash": "1756479859179",
       "hasWarnings": false,
       "documentTypeName": "Post"
     }

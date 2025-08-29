@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Calendar } from "lucide-react";
+import CategoryBadges from "./CategoryBadges";
 import { allPosts } from "contentlayer/generated";
 import { format, parseISO } from "date-fns";
 import { fr } from "date-fns/locale";
@@ -11,7 +12,7 @@ const latestArticles = allPosts
   .slice(0, 5);
 
 // Images par défaut selon la catégorie
-const getCategoryImage = (category: string) => {
+const getCategoryImage = (categories: string[]) => {
   const images = {
     SEO: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
     Data: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=800&auto=format&fit=crop",
@@ -21,7 +22,9 @@ const getCategoryImage = (category: string) => {
       "https://images.unsplash.com/photo-1543286384-2ccae3041f2b?q=80&w=800&auto=format&fit=crop",
     Test: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop",
   };
-  return images[category as keyof typeof images] || images.Data;
+  // Utilise la première catégorie pour l'image
+  const primaryCategory = categories[0];
+  return images[primaryCategory as keyof typeof images] || images.Data;
 };
 
 export default function LatestArticles() {
@@ -62,10 +65,8 @@ export default function LatestArticles() {
               {/* Content */}
               <div className="p-6">
                 {/* Meta info */}
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="px-2.5 py-1 text-xs rounded-full border border-slate-200 bg-slate-50 text-slate-700">
-                    {article.category}
-                  </span>
+                <div className="flex items-center gap-3 mb-3 flex-wrap">
+                  <CategoryBadges categories={article.category} size="sm" />
                   <span className="text-xs text-slate-500">
                     {article.readTime}
                   </span>

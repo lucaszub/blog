@@ -21,8 +21,9 @@ var Post = defineDocumentType(() => ({
       required: true
     },
     category: {
-      type: "string",
-      description: "La cat\xE9gorie de l'article",
+      type: "list",
+      of: { type: "string" },
+      description: "Les cat\xE9gories de l'article (peut \xEAtre multiple)",
       required: true
     },
     readTime: {
@@ -33,6 +34,11 @@ var Post = defineDocumentType(() => ({
     image: {
       type: "string",
       description: "URL de l'image de couverture",
+      required: false
+    },
+    faq: {
+      type: "json",
+      description: "Questions fr\xE9quentes avec questions et r\xE9ponses",
       required: false
     }
   },
@@ -54,4 +60,4 @@ export {
   Post,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-I22NUX3T.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-IEZBSPRI.mjs.map

@@ -19,12 +19,14 @@ export type Post = {
   date: IsoDateTimeString
   /** Un court résumé de l'article */
   excerpt: string
-  /** La catégorie de l'article */
-  category: string
+  /** Les catégories de l'article (peut être multiple) */
+  category: string[]
   /** Temps de lecture estimé */
   readTime: string
   /** URL de l'image de couverture */
   image?: string | undefined
+  /** Questions fréquentes avec questions et réponses */
+  faq?: any | undefined
   /** Markdown file body */
   body: Markdown
   url: string
