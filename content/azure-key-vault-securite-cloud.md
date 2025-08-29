@@ -93,5 +93,3 @@ En clair : moins de secrets dans le code, des accès finement gouvernés, et un 
 - Activer logs/alertes reliés au SIEM
 - Automatiser via IaC
 - Revoir accès et nettoyer régulièrement
-
----
