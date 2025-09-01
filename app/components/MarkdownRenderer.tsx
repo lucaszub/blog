@@ -13,12 +13,10 @@ export default function MarkdownRenderer({ html }: MarkdownRendererProps) {
     if (contentRef.current) {
       // Ajouter des IDs aux titres H2 pour la navigation
       const headings = contentRef.current.querySelectorAll("h2");
-      console.log("Titres H2 trouvés:", headings.length);
 
       headings.forEach((heading, index) => {
         const id = `heading-${index}`;
         heading.id = id;
-        console.log(`Ajouté l'ID "${id}" au titre:`, heading.textContent);
       });
 
       // Déclencher un événement pour informer la table des matières

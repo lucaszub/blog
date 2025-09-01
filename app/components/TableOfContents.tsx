@@ -22,14 +22,10 @@ export default function TableOfContents({ html }: TableOfContentsProps) {
     const doc = parser.parseFromString(html, "text/html");
     const headings = doc.querySelectorAll("h2");
 
-    console.log("Extraction des titres H2:", headings.length);
-
     const items: TocItem[] = [];
     headings.forEach((heading, index) => {
       const text = heading.textContent || "";
       const id = `heading-${index}`;
-
-      console.log(`Titre ${index}: "${text}" -> ID: ${id}`);
 
       items.push({
         id,
@@ -37,7 +33,6 @@ export default function TableOfContents({ html }: TableOfContentsProps) {
       });
     });
 
-    console.log("Éléments TOC générés:", items);
     setTocItems(items);
   }, [html]);
 
@@ -49,7 +44,6 @@ export default function TableOfContents({ html }: TableOfContentsProps) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log("Section active détectée:", entry.target.id);
             setActiveId(entry.target.id);
           }
         });
@@ -65,17 +59,11 @@ export default function TableOfContents({ html }: TableOfContentsProps) {
       const element = document.getElementById(item.id);
       if (element) {
         observer.observe(element);
-        console.log("Observation ajoutée pour:", item.id);
-      } else {
-        console.log("Élément non trouvé pour l'observation:", item.id);
       }
     });
 
     // Écouter l'événement de mise à jour des titres
     const handleHeadingsReady = () => {
-      console.log(
-        "Événement headingsReady reçu, mise à jour de l'observation..."
-      );
       // Refaire l'observation après un délai
       setTimeout(() => {
         observer.disconnect();
@@ -83,9 +71,6 @@ export default function TableOfContents({ html }: TableOfContentsProps) {
           const element = document.getElementById(item.id);
           if (element) {
             observer.observe(element);
-            console.log("Observation ajoutée pour:", item.id);
-          } else {
-            console.log("Élément non trouvé pour l'observation:", item.id);
           }
         });
       }, 100);
@@ -101,34 +86,26 @@ export default function TableOfContents({ html }: TableOfContentsProps) {
 
   // Fonction pour faire défiler vers un titre - Version simplifiée
   const scrollToHeading = (id: string) => {
-    console.log("Tentative de navigation vers:", id);
-
     // Attendre un peu que le DOM soit prêt
     setTimeout(() => {
       // Chercher l'élément par ID
       const element = document.getElementById(id);
 
       if (element) {
-        console.log("Élément trouvé par ID:", element);
         element.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
       } else {
-        console.log("Élément non trouvé par ID, recherche alternative...");
-
         // Chercher tous les H2 et essayer de matcher par index
         const allH2s = document.querySelectorAll("h2");
         const index = parseInt(id.replace("heading-", ""));
 
         if (allH2s[index]) {
-          console.log("Élément trouvé par index:", allH2s[index]);
           allH2s[index].scrollIntoView({
             behavior: "smooth",
             block: "start",
           });
-        } else {
-          console.log("Aucun élément trouvé");
         }
       }
     }, 50);
