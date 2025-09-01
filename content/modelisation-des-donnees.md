@@ -2,7 +2,7 @@
 title: "Modélisation des données : définitions, types, exemples et bonnes pratiques (2025)"
 date: 2025-09-01
 excerpt: "Découvrez la modélisation des données : définitions, types, modèles relationnel et NoSQL, bonnes pratiques et outils pour data engineers"
-category: ["modeleisation", "data engineer", "business intelligence"]
+category: ["modelisation", "data engineer", "business intelligence"]
 readTime: 8 min
 image: /Modelisation données.png
 faq:
@@ -213,7 +213,7 @@ La normalisation, c’est comme ranger un atelier : chaque outil (ou donnée) 
 
 ---
 
-### ⚡ Dénormaliser pour l’analytique ou NoSQL
+### Dénormaliser pour l’analytique ou NoSQL
 
 En analytique, parfois, on préfère un “plan de travail” encombré mais où tout est à portée de main.
 
