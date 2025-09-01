@@ -28,7 +28,7 @@ export default function Navbar() {
                 Lucas Zubiarrain
               </span>
               <span className="text-[11px] text-slate-600 leading-none mt-0.5">
-                Le carnet Data
+                Blog
               </span>
             </div>
           </Link>

@@ -19,9 +19,17 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Le carnet Data — Lucas Zubiarrain",
+  title: "Blog — Lucas Zubiarrain",
   description:
     "Blog de Lucas Zubiarrain — Data, automatisation, visualisation, reporting, web et acquisition. Expérimentations, guides, retours d'expérience.",
+  icons: {
+    icon: [
+      { url: "/Lucas Zubiarrain.png", sizes: "32x32", type: "image/png" },
+      { url: "/Lucas Zubiarrain.png", sizes: "16x16", type: "image/png" },
+    ],
+    shortcut: "/Lucas Zubiarrain.png",
+    apple: "/Lucas Zubiarrain.png",
+  },
 };
 
 export default function RootLayout({

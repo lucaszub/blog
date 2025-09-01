@@ -14,8 +14,7 @@ export default function Hero() {
 
           {/* Main heading */}
           <h1 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight font-semibold text-slate-900 mb-6">
-            Le carnet Data de{" "}
-            <span className="text-slate-700">Lucas Zubiarrain</span>
+            Blog de <span className="text-slate-700">Lucas Zubiarrain</span>
           </h1>
 
           {/* Description */}

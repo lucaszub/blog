@@ -12,9 +12,7 @@ export default function Footer() {
               <div className="size-7 rounded-md border border-slate-200 bg-white flex items-center justify-center shadow-sm">
                 <span className="text-xs tracking-tight font-semibold">LZ</span>
               </div>
-              <span className="text-sm text-slate-700 font-medium">
-                Le carnet Data
-              </span>
+              <span className="text-sm text-slate-700 font-medium">Blog</span>
             </Link>
             <p className="text-xs text-slate-600">
               © 2025 Lucas Zubiarrain. Tous droits réservés.
