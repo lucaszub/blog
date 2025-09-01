@@ -196,65 +196,67 @@ Cette approche permet d’optimiser performance et pertinence métier, au prix d
 
 ## Bonnes pratiques de modélisation des données
 
-Une **modélisation efficace** repose sur l’application systématique des meilleures pratiques éprouvées :
-
 ### Collaborer en amont avec les parties prenantes
 
-La participation active des métiers, analystes, développeurs, data stewards est essentielle. La compréhension du contexte métier, des usages, des contraintes, et des objectifs garantit un modèle adapté.
+Avant même de dessiner la première entité, mets tout le monde autour de la table : métiers, analystes, développeurs, data stewards.  
+**Exemple** : sur un projet e‑commerce, comprendre que “client” peut désigner à la fois un acheteur ponctuel et un compte entreprise change complètement la structure du modèle. Sans ce dialogue, tu risques de créer un schéma qui ne colle pas aux usages réels.
+
+---
 
 ### Éliminer la redondance : la normalisation
 
-La **normalisation** vise à :
+La normalisation, c’est comme ranger un atelier : chaque outil (ou donnée) a sa place.
 
-- Réduire la duplication des données.
-- Faciliter la maintenance et la cohérence.
-- Atteindre la 3NF dans le modèle logique pour les bases relationnelles.
+- **Avantage** : moins de doublons, plus de cohérence.
+- **Exemple** : au lieu de stocker l’adresse complète du client dans chaque commande, tu la mets dans une table `Client` et tu fais référence à son ID.
+- **Limite** : dans un tableau de bord Power BI, 8 jointures pour afficher un simple rapport de ventes peuvent vite plomber les performances.
 
-**Limite** : une base trop normalisée peut dégrader la performance analytique (multiplication des jointures).
+---
 
-### Dénormaliser pour l’analytique ou NoSQL
+### ⚡ Dénormaliser pour l’analytique ou NoSQL
 
-La **dénormalisation** (regroupement de tables, duplication de données clés) améliore la performance pour les requêtes rapides (data marts, NoSQL).
+En analytique, parfois, on préfère un “plan de travail” encombré mais où tout est à portée de main.
 
-Garder cependant le contrôle :
+- **Exemple** : dans un data mart marketing, tu peux dupliquer le nom du produit et la catégorie directement dans la table des ventes pour éviter des jointures coûteuses.
+- **Bonne pratique** : documenter chaque dénormalisation et prévoir comment synchroniser les données si la source change.
 
-- Documenter chaque dénormalisation, prévoir des mécanismes de synchronisation.
-- La redondance doit toujours être justifiée.
+---
 
-### Penser l’évolutivité et la flexibilité
+### Penser évolutivité et flexibilité
 
-Prévoir des modèles évolutifs :
+Un modèle figé, c’est un piège.
 
-- Utiliser des identifiants génériques (UUID).
-- Laisser des champs optionnels pour futures évolutions.
-- Concevoir les structures pour intégrer facilement de nouveaux attributs, entités ou types de relations.
+- **Exemple** : utiliser des UUID plutôt qu’un simple entier auto‑incrémenté permet d’intégrer plus tard des données venant d’autres systèmes sans risque de collision.
+- Laisser des champs optionnels ou prévoir des tables “extension” peut sauver des semaines de refonte quand un nouveau besoin arrive.
+
+---
 
 ### Documenter, versionner, maintenir
 
-- Rédiger des dictionnaires de données, commenter chaque entité et règle métier.
-- Utiliser le versioning (ex : via Git, intégration dans des workflows dbt [voir ci-dessous]).
-- Maintenir à jour la documentation métier et technique (modèles, schémas, conventions, politiques d’accès, etc.).
+Un modèle sans documentation, c’est comme un plan de métro sans légende.
+
+- **Exemple** : un dictionnaire de données clair, avec pour chaque champ : définition métier, type, contraintes, exemple de valeur.
+- **Outils** : Git pour versionner les schémas, dbt pour intégrer la doc directement dans les workflows.
+
+---
 
 ### Assurer la qualité et la gouvernance
 
-- Mettre en place des tests d’intégrité, de volume, de valeur.
-- Établir les contraintes (CHECK, UNIQUE, NOT NULL, FOREIGN KEY).
-- Utiliser des outils comme [Great Expectations](https://greatexpectations.io/) ou [Soda Core](https://docs.soda.io/soda/core.html) pour monitorer continuellement la qualité.
+- **Exemple** : un test automatique qui bloque le déploiement si une table contient des valeurs NULL dans une colonne censée être obligatoire.
+- **Outils** : [Great Expectations](https://greatexpectations.io/) ou [Soda Core](https://docs.soda.io/soda/core.html) pour surveiller la qualité en continu.
 
-### Connaître et éviter les erreurs fréquentes
+---
 
-**Liste de pièges récurrents :**
+### Éviter les erreurs fréquentes
 
-- Sur-modélisation (trop complexe, difficile à maintenir).
-- Mauvaise compréhension des besoins métier.
-- Absence ou mauvaise gestion des clés primaires/étrangères.
-- Non-respect des standards de nommage ou de documentation.
-- Dépendances cycliques ou mal gérées.
-- Dénormalisation injustifiée, non documentée.
-- Mauvaise gestion de la volumétrie (pas d’archivage, dimension illimitée).
-- Oubli des contraintes techniques (limites SGBD, indexation, types de données).
+- Sur‑modéliser : créer 15 tables pour un besoin qui en demande 3.
+- Oublier les clés primaires/étrangères : bonjour les doublons et incohérences.
+- Dénormaliser “par confort” sans documenter : tu te retrouves avec des données divergentes au bout de 6 mois.
+- Ignorer la volumétrie : une table de logs qui grossit sans limite peut exploser ton stockage.
 
-Une gouvernance stricte du modèle de données assure robustesse et pérennité du système.
+---
+
+**En résumé** : un bon modèle, c’est un équilibre entre rigueur et pragmatisme. On garde la structure propre, mais on sait aussi plier les règles quand la performance ou la lisibilité l’exige — et on explique toujours pourquoi.
 
 ## Conclusion
 
