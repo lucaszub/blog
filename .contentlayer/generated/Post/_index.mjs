@@ -2,5 +2,6 @@
 
 import azureKeyVaultSecuriteCloudMd from './azure-key-vault-securite-cloud.md.json' with { type: 'json' }
 import fastapiDeploiementAzureMd from './fastapi-deploiement-azure.md.json' with { type: 'json' }
+import modelisationDesDonneesMd from './modelisation-des-donnees.md.json' with { type: 'json' }
 
-export const allPosts = [azureKeyVaultSecuriteCloudMd, fastapiDeploiementAzureMd]
+export const allPosts = [azureKeyVaultSecuriteCloudMd, fastapiDeploiementAzureMd, modelisationDesDonneesMd]

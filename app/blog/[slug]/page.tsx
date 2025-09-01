@@ -8,6 +8,7 @@ import { Calendar, Clock } from "lucide-react";
 import MarkdownRenderer from "../../components/MarkdownRenderer";
 import CategoryBadges from "../../components/CategoryBadges";
 import BlogFAQ from "../../components/BlogFAQ";
+import TableOfContents from "../../components/TableOfContents";
 
 // Générer les paramètres statiques pour tous les posts
 export async function generateStaticParams() {
@@ -105,9 +106,22 @@ export default async function BlogPost({
             </div>
           )}
 
-          {/* Contenu de l'article */}
-          <div className="max-w-3xl mx-auto">
-            <MarkdownRenderer html={post.body.html} />
+          {/* Table des matières - Mobile (en haut) */}
+          <div className="lg:hidden mb-8">
+            <TableOfContents html={post.body.html} />
+          </div>
+
+          {/* Layout avec contenu centré et TOC à droite */}
+          <div className="lg:flex lg:justify-center lg:gap-12">
+            {/* Contenu principal centré */}
+            <div className="max-w-3xl">
+              <MarkdownRenderer html={post.body.html} />
+            </div>
+
+            {/* Table des matières - Desktop (discret à droite) */}
+            <div className="hidden lg:block lg:w-64 lg:flex-shrink-0">
+              <TableOfContents html={post.body.html} />
+            </div>
           </div>
 
           {/* Section FAQ */}

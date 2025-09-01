@@ -1,10 +1,36 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 interface MarkdownRendererProps {
   html: string;
 }
 
 export default function MarkdownRenderer({ html }: MarkdownRendererProps) {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      // Ajouter des IDs aux titres H2 pour la navigation
+      const headings = contentRef.current.querySelectorAll("h2");
+      console.log("Titres H2 trouvés:", headings.length);
+
+      headings.forEach((heading, index) => {
+        const id = `heading-${index}`;
+        heading.id = id;
+        console.log(`Ajouté l'ID "${id}" au titre:`, heading.textContent);
+      });
+
+      // Déclencher un événement pour informer la table des matières
+      const event = new CustomEvent("headingsReady", {
+        detail: { count: headings.length },
+      });
+      window.dispatchEvent(event);
+    }
+  }, [html]);
+
   return (
-    <div className="markdown-content max-w-none">
+    <div className="markdown-content max-w-none" ref={contentRef}>
       <div
         className="
           [&_h1]:text-4xl [&_h1]:font-bold [&_h1]:text-slate-900 [&_h1]:mt-10 [&_h1]:mb-6 [&_h1]:tracking-tight
